@@ -1,0 +1,10 @@
+.triggerModal {
+	width: 25%;
+	padding: 5px 0px;
+	border-radius: 15px;
+	border: 2px solid #0078f0;
+	color: #a4a4a4;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+}

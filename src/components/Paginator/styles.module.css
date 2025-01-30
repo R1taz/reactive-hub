@@ -1,0 +1,17 @@
+.paginator {
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: end;
+}
+
+.paginator button {
+	background-color: inherit;
+	border: none;
+	color: white;
+}
+
+.paginator .active {
+	background-color: inherit;
+	border: none;
+	color: #0078f0;
+}

@@ -1,0 +1,26 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+	margin: 0;
+	background-color: #272727;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 85%;
+}
+
+.blue_color {
+	color: #0078f0;
+}
+
+.gray_color {
+	color: #a4a4a4;
+}

@@ -1,0 +1,36 @@
+.header {
+	margin: 25px 0px;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1;
+}
+
+.content h1 {
+	font-size: bold;
+	margin: 0px;
+}
+
+.content p {
+	font-size: bold;
+	margin: 0px;
+}
+
+.content img {
+	width: 60%;
+	margin-bottom: 5px;
+}
+
+.content > div {
+	display: flex;
+	flex-direction: column;
+}
+
+.content > div:last-child {
+	align-items: center;
+	gap: 2;
+	width: 10%;
+}

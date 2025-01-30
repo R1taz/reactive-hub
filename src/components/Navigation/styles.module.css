@@ -1,0 +1,12 @@
+.navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px 0px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: #a4a4a4;
+	margin: 10px 20px;
+}
