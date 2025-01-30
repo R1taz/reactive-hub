@@ -22,8 +22,15 @@
 	margin-left: 15px;
 }
 
-.gameItem .info p {
+.gameItem .info p,
+.gameItem .info h3 {
 	color: white;
+}
+
+.gameItem .info a {
+	color: white;
+	text-decoration: none;
+	margin: 20px 0px;
 }
 
 .gameItem .info p.italic {
