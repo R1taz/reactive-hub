@@ -1,0 +1,20 @@
+.fullWidthLine {
+	border: 1px solid var(--color-gray);
+	height: 0px;
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+}
+
+.fullWidthLine .children {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--color-gray);
+	padding: 0 15px;
+	background-color: var(--color-background-dark);
+	z-index: 1;
+}

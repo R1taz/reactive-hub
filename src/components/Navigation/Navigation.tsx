@@ -5,9 +5,9 @@ const Navigation = () => {
 	return (
 		<div className={styles.navigation}>
 			<NavLink to='/news'>Gaming News</NavLink>
-			<NavLink to='/catalog'>Game Catalog</NavLink>
+			<NavLink to='/games'>Game Catalog</NavLink>
 			<NavLink to='/blogs'>Game Reviews</NavLink>
-			<NavLink to='/news'>Profile</NavLink>
+			<NavLink to='/profile'>Profile</NavLink>
 		</div>
 	)
 }

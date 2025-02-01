@@ -12,11 +12,13 @@
 .content h1 {
 	font-size: bold;
 	margin: 0px;
+	color: var(--color-blue);
 }
 
 .content p {
 	font-size: bold;
 	margin: 0px;
+	color: var(--color-gray);
 }
 
 .content img {
