@@ -1,0 +1,32 @@
+.title {
+	color: white;
+	font-weight: 500;
+}
+
+.carousel {
+	width: 100%;
+	overflow: scroll;
+	margin: 10px 0px;
+}
+
+.carousel > div {
+	display: flex;
+	transition: transform 0.5s ease;
+}
+
+.item {
+	background-color: var(--color-blue);
+	padding: 5px 20px;
+	margin: 0px 10px;
+	color: white;
+	border-radius: 20px;
+	flex: 0 0 auto;
+}
+
+.carousel > div .item:first-child {
+	margin-left: 0px;
+}
+
+.carousel > div .item:last-child {
+	margin-right: 0px;
+}

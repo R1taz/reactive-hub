@@ -1,0 +1,9 @@
+.release {
+	display: flex;
+	justify-content: space-between;
+}
+
+.release p {
+	color: var(--color-gray);
+	font-style: italic;
+}

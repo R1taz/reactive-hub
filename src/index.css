@@ -4,7 +4,10 @@
 
 body {
 	margin: 0;
-	background-color: #272727;
+	background-color: var(--color-background-dark);
+	--color-blue: #0078f0;
+	--color-gray: #a4a4a4;
+	--color-background-dark: #272727;
 }
 
 #root {
@@ -15,12 +18,4 @@ body {
 
 .container {
 	width: 85%;
-}
-
-.blue_color {
-	color: #0078f0;
-}
-
-.gray_color {
-	color: #a4a4a4;
 }

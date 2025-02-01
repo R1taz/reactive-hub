@@ -13,5 +13,5 @@
 .paginator .active {
 	background-color: inherit;
 	border: none;
-	color: #0078f0;
+	color: var(--color-blue);
 }

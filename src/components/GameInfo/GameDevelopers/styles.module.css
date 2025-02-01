@@ -1,0 +1,11 @@
+.gameDevelopers {
+	border-radius: 20px;
+	background-color: var(--color-blue);
+	padding: 5px 15px;
+	margin: 0px 0px;
+}
+
+.gameDevelopers p {
+	color: white;
+	margin: 5px;
+}
