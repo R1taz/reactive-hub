@@ -1,31 +1,17 @@
-import ModalFilters from './components/Filters/Modal'
-import Header from './components/Header/Header'
-import Search from './components/Search/Search'
-import Navigation from './components/Navigation/Navigation'
-import Paginator from './components/Paginator/Paginator'
-import GamesList from './components/GamesList/GamesList'
+import { Route, Routes } from 'react-router-dom'
+import MainLayout from './layouts/MainLayout/MainLayout'
+import GamesCatalogPage from './pages/GamesCatalogPage/GamesCatalogPage'
+import GameInfoPage from './pages/GameInfoPage/GameInfoPage'
 
 function App() {
 	return (
-		<div className='container'>
-			<Header />
-			<hr />
-			<Navigation />
-			<div
-				style={{
-					display: 'flex',
-					margin: '20px 0px',
-					justifyContent: 'space-between',
-					alignItems: 'stretch',
-				}}
-			>
-				<ModalFilters />
-				<Search chapter='games' />
-			</div>
-
-			<Paginator />
-			<GamesList />
-		</div>
+		<Routes>
+			<Route path='/' element={<MainLayout />}>
+				<Route index element={<div>News</div>} />
+				<Route path='/games' element={<GamesCatalogPage />} />
+				<Route path='/game' element={<GameInfoPage />} />
+			</Route>
+		</Routes>
 	)
 }
 

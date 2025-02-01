@@ -1,6 +1,6 @@
 .search {
 	border-radius: 10px;
-	border: 2px solid #0078f0;
+	border: 2px solid var(--color-blue);
 	outline: none;
 	color: white;
 	padding: 0px 10px;

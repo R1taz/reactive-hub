@@ -6,13 +6,13 @@ const Header = () => {
 		<div className={styles.header}>
 			<div className={styles.content}>
 				<div>
-					<h1 className='blue_color'>Reactive Hub</h1>
-					<p className='gray_color'>Saturday, 12 January 2025, 17:08</p>
+					<h1>Reactive Hub</h1>
+					<p>Saturday, 12 January 2025, 17:08</p>
 				</div>
 
 				<div>
 					<img src={sunSVG} alt='Солнце' />
-					<p className='gray_color'>+18°C</p>
+					<p>+18°C</p>
 				</div>
 			</div>
 		</div>

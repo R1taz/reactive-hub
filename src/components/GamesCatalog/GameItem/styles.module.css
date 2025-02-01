@@ -1,7 +1,7 @@
 .gameItem {
 	margin: 10px 0px;
 	border-radius: 10px;
-	background-color: #0078f0;
+	background-color: var(--color-blue);
 }
 
 .gameItem > div {
@@ -11,6 +11,7 @@
 .gameItem > div img {
 	object-fit: cover;
 	width: 30%;
+	background-color: #a4a4a4;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
