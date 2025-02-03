@@ -1,15 +1,18 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout/MainLayout'
 import GamesCatalogPage from './pages/GamesCatalogPage/GamesCatalogPage'
 import GameInfoPage from './pages/GameInfoPage/GameInfoPage'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 function App() {
 	return (
 		<Routes>
 			<Route path='/' element={<MainLayout />}>
-				<Route index element={<div>News</div>} />
-				<Route path='/games' element={<GamesCatalogPage />} />
-				<Route path='/game' element={<GameInfoPage />} />
+				<Route index element={<Navigate to='/news' />} />
+				<Route path='/news' element={<div>News</div>} />
+				<Route path='games' element={<GamesCatalogPage />} />
+				<Route path='game' element={<GameInfoPage />} />
+				<Route path='profile/*' element={<ProfilePage />} />
 			</Route>
 		</Routes>
 	)

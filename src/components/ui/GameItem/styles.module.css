@@ -2,6 +2,7 @@
 	margin: 10px 0px;
 	border-radius: 10px;
 	background-color: var(--color-blue);
+	position: relative;
 }
 
 .gameItem > div {
@@ -36,4 +37,14 @@
 
 .gameItem .info p.italic {
 	font-style: italic;
+}
+
+.gameItem .star {
+	position: absolute;
+	top: 5%;
+	right: 2%;
+	width: 25px;
+	height: 25px;
+	background-color: inherit;
+	cursor: pointer;
 }
