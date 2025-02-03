@@ -8,6 +8,7 @@ body {
 	--color-blue: #0078f0;
 	--color-gray: #a4a4a4;
 	--color-background-dark: #272727;
+	overflow-x: hidden;
 }
 
 #root {

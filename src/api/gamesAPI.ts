@@ -8,11 +8,11 @@ const gamesAPI = createApi({
 		getGames: builder.query<any, { page: number; page_size: number }>({
 			query: ({ page, page_size }) =>
 				`/games?key=${
-					import.meta.env.VITE_API_KEY
+					import.meta.env.VITE_GAMES_API_KEY
 				}&page=${page}&page_size=${page_size}`,
 		}),
 		getGame: builder.query<ICurrentGame, number>({
-			query: id => `/games/${id}?key=${import.meta.env.VITE_API_KEY}`,
+			query: id => `/games/${id}?key=${import.meta.env.VITE_GAMES_API_KEY}`,
 		}),
 	}),
 })

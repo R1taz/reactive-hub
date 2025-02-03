@@ -1,0 +1,20 @@
+.navigation {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: var(--color-gray);
+	padding: 10px;
+}
+
+.navigation a:first-child {
+	margin-right: 20px;
+}
+
+.navigation a:last-child {
+	margin-left: 20px;
+}
