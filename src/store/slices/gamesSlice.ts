@@ -11,6 +11,7 @@ interface State {
 	page_size: number
 	portion_size: number
 	total_count: number
+	keywords: string
 	current_game: {
 		id_game: number | null
 		screenshots: {
@@ -27,6 +28,7 @@ const initialState: State = {
 	page_size: 10,
 	portion_size: 5,
 	total_count: 0,
+	keywords: '',
 	current_game: {
 		id_game: null,
 		screenshots: [],
@@ -118,6 +120,9 @@ const gamesSlice = createSlice({
 		setInfoCurrentGame(state, action: PayloadAction<ICurrentGame>) {
 			state.current_game.info = action.payload
 		},
+		setKeywords(state, action: PayloadAction<string>) {
+			state.keywords = action.payload
+		},
 	},
 })
 
@@ -129,4 +134,5 @@ export const {
 	setScreenshotCurrentGame,
 	setIdCurrentGame,
 	setInfoCurrentGame,
+	setKeywords,
 } = gamesSlice.actions
