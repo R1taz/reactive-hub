@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 interface Props {
 	total_count: number
-	page_size: number
 	current_page: number
 	portion_size: number
 	setPage: (i: number) => void
@@ -11,14 +10,13 @@ interface Props {
 
 const Paginator = ({
 	total_count,
-	page_size,
 	current_page,
 	portion_size,
 	setPage,
 }: Props) => {
 	const allPortions = Math.ceil(total_count / portion_size)
 	const [currentPortion, setCurrentPortion] = useState(
-		Math.ceil(current_page / page_size)
+		Math.ceil(current_page / portion_size)
 	)
 
 	const leftPage = (currentPortion - 1) * portion_size + 1

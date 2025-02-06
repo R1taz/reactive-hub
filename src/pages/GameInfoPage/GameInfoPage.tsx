@@ -14,12 +14,6 @@ const GameInfoPage = () => {
 	const current_game = useAppSelector(state => state.gamesSlice.current_game)
 	const dispatch = useAppDispatch()
 
-	/* const { id } = useParams() */
-
-	/* if (!current_game.id_game) {
-		dispatch(setIdCurrentGame(+id!))
-	} */
-
 	const { data, error, isLoading } = useGetGameQuery(
 		current_game.id_game as number
 	)
