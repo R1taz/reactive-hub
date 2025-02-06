@@ -1,9 +1,10 @@
 import styles from './styles.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
 	total_count: number
 	current_page: number
+	page_size: number
 	portion_size: number
 	setPage: (i: number) => void
 }
@@ -11,16 +12,24 @@ interface Props {
 const Paginator = ({
 	total_count,
 	current_page,
+	page_size,
 	portion_size,
 	setPage,
 }: Props) => {
-	const allPortions = Math.ceil(total_count / portion_size)
+	const allPortions = Math.ceil(total_count / page_size / portion_size)
 	const [currentPortion, setCurrentPortion] = useState(
 		Math.ceil(current_page / portion_size)
 	)
 
+	useEffect(() => {
+		setCurrentPortion(1)
+	}, [total_count])
+
 	const leftPage = (currentPortion - 1) * portion_size + 1
-	const rightPage = Math.min(total_count, currentPortion * portion_size)
+	const rightPage = Math.min(
+		total_count / page_size,
+		currentPortion * portion_size
+	)
 
 	const btns = []
 

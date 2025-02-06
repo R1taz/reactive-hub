@@ -10,13 +10,15 @@ import { useGetGamesQuery } from '@/api/gamesAPI'
 
 const GamesCatalogPage = () => {
 	const games = useAppSelector(state => state.gamesSlice.games)
-	const dispatch = useAppDispatch()
 	const current_page = useAppSelector(state => state.gamesSlice.current_page)
 	const page_size = useAppSelector(state => state.gamesSlice.page_size)
+	const keywords = useAppSelector(state => state.gamesSlice.keywords)
+	const dispatch = useAppDispatch()
 
 	const { data, error, isLoading } = useGetGamesQuery({
 		page: current_page,
 		page_size: page_size,
+		search: keywords,
 	})
 
 	useEffect(() => {
