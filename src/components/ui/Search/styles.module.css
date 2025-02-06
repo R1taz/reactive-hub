@@ -1,10 +1,14 @@
 .search {
 	border-radius: 10px;
-	border: 2px solid var(--color-blue);
+	border: none;
 	outline: none;
 	color: white;
 	padding: 0px 10px;
 	width: 65%;
-	background-color: inherit;
+	background-color: var(--color-gray);
 	border-radius: 15px;
+}
+
+.search::placeholder {
+	color: white;
 }
