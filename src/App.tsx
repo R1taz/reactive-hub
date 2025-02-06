@@ -13,6 +13,7 @@ function App() {
 				<Route path='/news' element={<NewsPage />} />
 				<Route path='games' element={<GamesCatalogPage />} />
 				<Route path='game' element={<GameInfoPage />} />
+				<Route path='reviews' element={<div>Reviews page</div>} />
 				<Route path='profile/*' element={<ProfilePage />} />
 			</Route>
 		</Routes>
