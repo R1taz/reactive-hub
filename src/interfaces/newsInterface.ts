@@ -7,6 +7,7 @@ export interface ResponseGetApiNews {
 export interface RequestGetApiNews {
 	page_number: number
 	page_size: number
+	keywords: string
 }
 
 export interface INews {
