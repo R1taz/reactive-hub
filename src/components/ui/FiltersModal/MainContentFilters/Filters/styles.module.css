@@ -1,0 +1,16 @@
+.filters {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+.filters h2 {
+	font-weight: 500;
+	color: var(--color-blue);
+	margin: 10px;
+	align-self: center;
+}
+
+.virtualFiltersList {
+	overflow-y: scroll;
+}

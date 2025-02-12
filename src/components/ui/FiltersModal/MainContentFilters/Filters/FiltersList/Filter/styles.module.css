@@ -1,0 +1,23 @@
+.filter {
+	margin: 10px 0px;
+	background-color: var(--color-gray);
+	border-radius: 20px;
+	padding: 0px 10px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.filter.active {
+	background-color: var(--color-blue);
+}
+
+.filter span {
+	color: white;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
