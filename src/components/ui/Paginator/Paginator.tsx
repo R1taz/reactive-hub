@@ -22,12 +22,12 @@ const Paginator = ({
 	)
 
 	useEffect(() => {
-		setCurrentPortion(1)
+		if (current_page === 1) setCurrentPortion(1)
 	}, [total_count])
 
 	const leftPage = (currentPortion - 1) * portion_size + 1
 	const rightPage = Math.min(
-		total_count / page_size,
+		Math.ceil(total_count / page_size),
 		currentPortion * portion_size
 	)
 

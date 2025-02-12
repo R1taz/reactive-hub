@@ -5,14 +5,24 @@ const gamesAPI = createApi({
 	reducerPath: 'gamesAPI',
 	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.rawg.io/api' }),
 	endpoints: builder => ({
-		getGames: builder.query<
-			any,
-			{ page: number; page_size: number; search: string }
-		>({
-			query: ({ page, page_size, search }) =>
-				`/games?key=${
-					import.meta.env.VITE_GAMES_API_KEY
-				}&page=${page}&page_size=${page_size}&search=${search}&search_precise=true`,
+		getGames: builder.query<any, any>({
+			query: ({ page, page_size, search, activeFilters = {} }) => {
+				const apiKey = import.meta.env.VITE_GAMES_API_KEY
+				let queryActiveFilters = '&'
+
+				for (let key of Object.keys(activeFilters)) {
+					if (activeFilters[key].length) {
+						const category = activeFilters[key]
+						queryActiveFilters += `${key}=${category.join(', ')}`
+						queryActiveFilters += '&'
+					}
+				}
+
+				const query = `/games?key=${apiKey}&page=${page}&page_size=${page_size}&search=${search}&search_precise=true${queryActiveFilters}`
+
+				return query
+			},
+			keepUnusedDataFor: 0,
 		}),
 		getGame: builder.query<ICurrentGame, number>({
 			query: id => `/games/${id}?key=${import.meta.env.VITE_GAMES_API_KEY}`,
