@@ -1,3 +1,15 @@
 .news {
 	margin: 20px 0px;
 }
+
+.search {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.search input {
+	width: 100%;
+	margin: 10px 0px 20px;
+	padding: 10px 10px;
+}
