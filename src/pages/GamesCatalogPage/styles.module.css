@@ -4,3 +4,14 @@
 	justify-content: space-between;
 	align-items: stretch;
 }
+
+.search {
+	width: 65%;
+	display: flex;
+	justify-content: center;
+}
+
+.search input {
+	width: 100%;
+	padding: 10px 10px;
+}

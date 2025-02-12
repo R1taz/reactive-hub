@@ -7,7 +7,12 @@ import GamesCatalogPaginator from '@/components/GamesCatalog/GamesCaralogPaginat
 import GamesFilters from '@/components/GamesCatalog/GamesFilters/GamesFilters'
 import GamesList from '@/components/GamesCatalog/GamesList/GamesList'
 
-import { setGames, setTotalCount } from '@/store/slices/gamesSlice'
+import {
+	setCurrentPage,
+	setGames,
+	setKeywords,
+	setTotalCount,
+} from '@/store/slices/gamesSlice'
 import { useGetGamesQuery } from '@/api/gamesAPI'
 
 import styles from './styles.module.css'
@@ -43,7 +48,14 @@ const GamesCatalogPage = () => {
 		<>
 			<div className={styles.blockSearchContent}>
 				<GamesFilters />
-				<Search chapter='games' />
+				<div className={styles.search}>
+					<Search
+						chapter='games'
+						keywords={keywords}
+						setCurrentPage={page => dispatch(setCurrentPage(page))}
+						setKeywords={keywords => dispatch(setKeywords(keywords))}
+					/>
+				</div>
 			</div>
 
 			<GamesCatalogPaginator />

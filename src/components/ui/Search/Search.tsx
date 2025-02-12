@@ -1,15 +1,23 @@
-import { useAppDispatch, useAppSelector } from '@/hooks/react-redux'
+import { useAppDispatch } from '@/hooks/react-redux'
 import styles from './styles.module.css'
-import { setCurrentPage, setKeywords } from '@/store/slices/gamesSlice'
 import { useEffect, useState } from 'react'
 import { useDebounce } from '@/hooks/useDebounce'
 
 interface Props {
 	chapter: string
+	keywords: string
+	setCurrentPage: (page: number) => void
+	setKeywords: (keywords: string) => void
+	resetContentItems?: () => void
 }
 
-const Search = ({ chapter }: Props) => {
-	const keywords = useAppSelector(state => state.gamesSlice.keywords)
+const Search = ({
+	chapter,
+	keywords,
+	setCurrentPage,
+	setKeywords,
+	resetContentItems,
+}: Props) => {
 	const dispatch = useAppDispatch()
 	const [searchValue, setSearchValue] = useState(keywords)
 	const debouncedValue = useDebounce(searchValue, 500)
@@ -21,8 +29,9 @@ const Search = ({ chapter }: Props) => {
 
 	useEffect(() => {
 		if (keywords === debouncedValue) return
-		dispatch(setKeywords(debouncedValue))
-		dispatch(setCurrentPage(1))
+		setKeywords(debouncedValue)
+		setCurrentPage(1)
+		if (resetContentItems) resetContentItems()
 	}, [debouncedValue, dispatch])
 
 	return (
