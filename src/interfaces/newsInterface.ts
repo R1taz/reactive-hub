@@ -8,6 +8,7 @@ export interface RequestGetApiNews {
 	page_number: number
 	page_size: number
 	keywords: string
+	category: INewsCategories
 }
 
 export interface INews {
@@ -21,3 +22,52 @@ export interface INews {
 	category: string[]
 	published: string
 }
+
+export type INewsCategories =
+	| 'all'
+	| 'regional'
+	| 'technology'
+	| 'lifestyle'
+	| 'business'
+	| 'general'
+	| 'programming'
+	| 'science'
+	| 'entertainment'
+	| 'world'
+	| 'sports'
+	| 'finance'
+	| 'academia'
+	| 'politics'
+	| 'health'
+	| 'opinion'
+	| 'food'
+	| 'game'
+	| 'fashion'
+	| 'academic'
+	| 'crap'
+	| 'travel'
+	| 'culture'
+	| 'economy'
+	| 'environment'
+	| 'art'
+	| 'music'
+	| 'notsure'
+	| 'CS'
+	| 'education'
+	| 'redundant'
+	| 'television'
+	| 'commodity'
+	| 'movie'
+	| 'entrepreneur'
+	| 'review'
+	| 'auto'
+	| 'energy'
+	| 'celebrity'
+	| 'medical'
+	| 'gadgets'
+	| 'design'
+	| 'EE'
+	| 'security'
+	| 'mobile'
+	| 'estate'
+	| 'funny'

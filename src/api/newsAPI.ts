@@ -7,17 +7,21 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const newsAPI = createApi({
 	reducerPath: 'newsAPI',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'https://api.currentsapi.services/v1/search',
+		baseUrl: 'https://api.currentsapi.services/v1',
 	}),
 	endpoints: builder => ({
 		getNews: builder.query<ResponseGetApiNews, RequestGetApiNews>({
-			query: ({ page_number, page_size, keywords }) =>
-				`?apiKey=${
+			query: ({ page_number, page_size, keywords, category }) =>
+				`/search?apiKey=${
 					import.meta.env.VITE_NEWS_API_KEY
-				}&page_number=${page_number}&page_size=${page_size}&keywords=${keywords}`,
+				}&page_number=${page_number}&page_size=${page_size}&keywords=${keywords}&category=${category}`,
+		}),
+		getCategories: builder.query({
+			query: () =>
+				`/available/categories?apiKey=${import.meta.env.VITE_NEWS_API_KEY}`,
 		}),
 	}),
 })
 
 export default newsAPI
-export const { useGetNewsQuery } = newsAPI
+export const { useGetNewsQuery, useGetCategoriesQuery } = newsAPI

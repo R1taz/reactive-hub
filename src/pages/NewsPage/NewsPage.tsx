@@ -6,18 +6,21 @@ import { useGetNewsQuery } from '@/api/newsAPI'
 import { resetNews, setNews } from '@/store/slices/newsSlice'
 import Search from '@/components/ui/Search/Search'
 import { setCurrentPage, setKeywords } from '@/store/slices/newsSlice'
+import NewsCategories from '@/components/News/NewsCategories/NewsCategories'
 
 const NewsPage = () => {
 	const news = useAppSelector(state => state.newsSlice.news)
 	const page_number = useAppSelector(state => state.newsSlice.current_page)
 	const page_size = useAppSelector(state => state.newsSlice.page_size)
 	const keywords = useAppSelector(state => state.newsSlice.keywords)
+	const category = useAppSelector(state => state.newsSlice.selectedCategory)
 	const dispatch = useAppDispatch()
 
 	const { data, isFetching } = useGetNewsQuery({
 		page_number,
 		page_size,
 		keywords,
+		category,
 	})
 	const lastNewsElementRef = useRef<HTMLDivElement | null>(null)
 
@@ -73,6 +76,7 @@ const NewsPage = () => {
 
 	return (
 		<>
+			<NewsCategories selectedCategory={category} />
 			<div className={styles.search}>
 				<Search
 					chapter='news'

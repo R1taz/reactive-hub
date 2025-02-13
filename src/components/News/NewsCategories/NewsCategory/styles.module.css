@@ -1,0 +1,12 @@
+.category {
+	border-radius: 15px;
+	background-color: var(--color-blue);
+	color: white;
+	padding: 5px 35px;
+	margin: 0px 10px;
+}
+
+.category.active {
+	background-color: white;
+	color: var(--color-blue);
+}
