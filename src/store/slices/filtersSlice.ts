@@ -43,7 +43,7 @@ const initialState: State = {
 		tags: [],
 	},
 	filterItemHeight: 30,
-	visibleFilterItem: 4,
+	visibleFilterItem: 5,
 	countFilters: 6,
 }
 

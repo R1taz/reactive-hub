@@ -1,0 +1,9 @@
+.link {
+	display: flex;
+	justify-content: center;
+}
+
+.link a {
+	color: var(--color-blue);
+	text-decoration: none;
+}

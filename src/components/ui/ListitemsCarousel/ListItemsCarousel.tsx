@@ -6,8 +6,10 @@ interface Props {
 }
 
 const ListItemsCarousel = ({ titleList, listItems }: Props) => {
+	if (!listItems.length) return <div></div>
+
 	return (
-		<>
+		<div className={styles.listItems}>
 			<h2 className={styles.title}>{titleList}</h2>
 
 			<div className={styles.carousel}>
@@ -17,7 +19,7 @@ const ListItemsCarousel = ({ titleList, listItems }: Props) => {
 							<span>
 								{Object.keys(item)
 									.filter(
-										key => typeof item[key] === 'object' && item[key].name
+										key => typeof item[key] === 'object' && item[key]?.name
 									)
 									.map(key => item[key].name)}
 							</span>
@@ -25,7 +27,7 @@ const ListItemsCarousel = ({ titleList, listItems }: Props) => {
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

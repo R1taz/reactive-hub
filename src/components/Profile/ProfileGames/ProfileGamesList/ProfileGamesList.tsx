@@ -5,26 +5,23 @@ import {
 	addToMyFavoriteGames,
 	removeToMyFavoriteGames,
 } from '@/store/slices/profileSlice'
+import styles from './styles.module.css'
 
 interface Props {
-	start: number
+	games: IGame[]
+	containerHeight: number
+	itemHeight: number
 }
 
-const ProfileGamesList = ({ start }: Props) => {
+const ProfileGamesList = ({ games, containerHeight, itemHeight }: Props) => {
 	const myFavoriteGames = useAppSelector(state => state.profileSlice.myGames)
-	const gameItemHeight = useAppSelector(
-		state => state.profileSlice.gameItemHeight
-	)
-	const visibleGameItem = useAppSelector(
-		state => state.profileSlice.visibleGameItem
-	)
 	const dispatch = useAppDispatch()
 
 	return (
-		<div>
-			{myFavoriteGames.slice(start, start + visibleGameItem + 1).map(game => (
+		<div style={{ height: containerHeight }} className={styles.gamesList}>
+			{games.map(game => (
 				<GameItem
-					gameItemHeight={gameItemHeight}
+					gameItemHeight={itemHeight}
 					game={game}
 					addToMyGames={(game: IGame) => dispatch(addToMyFavoriteGames(game))}
 					removeToMyGames={(id: number) =>

@@ -1,0 +1,7 @@
+.gamesList > div:first-child {
+	margin-top: 0px;
+}
+
+.gamesList > div:last-child {
+	margin-bottom: 0px;
+}
