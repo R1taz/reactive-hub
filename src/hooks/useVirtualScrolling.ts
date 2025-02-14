@@ -1,27 +1,29 @@
 import { RefObject, useLayoutEffect, useState } from 'react'
-import { IFilter } from '@/interfaces/filtersInterface'
 
-interface Props {
+interface Props<T> {
 	containerHeight: number
 	rowHeight: number
 	scrollElementRef: RefObject<HTMLDivElement>
-	items: IFilter[]
+	items: T[]
 	overscan: number
 }
 
-const useVirtualScrolling = (props: Props) => {
-	const { containerHeight, rowHeight, scrollElementRef, items, overscan } =
-		props
-
+const useVirtualScrolling = <T>({
+	containerHeight,
+	rowHeight,
+	items,
+	scrollElementRef,
+	overscan,
+}: Props<T>) => {
 	const [scrollTop, setScrollTop] = useState(0)
 
 	useLayoutEffect(() => {
 		const scrollElement = scrollElementRef.current
+
 		if (!scrollElement) return
 
 		const handleScroll = () => {
-			const scrollTop = scrollElement.scrollTop
-			setScrollTop(scrollTop)
+			setScrollTop(scrollElement.scrollTop)
 		}
 
 		handleScroll()
@@ -33,7 +35,7 @@ const useVirtualScrolling = (props: Props) => {
 	const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - overscan)
 	const endIndex = Math.min(
 		items.length * rowHeight,
-		Math.ceil((scrollTop + containerHeight) / rowHeight + overscan)
+		Math.ceil((scrollTop + containerHeight) / rowHeight) + overscan
 	)
 
 	const topDivHeight = startIndex * rowHeight
@@ -45,8 +47,6 @@ const useVirtualScrolling = (props: Props) => {
 		virtualItems,
 		topDivHeight,
 		bottomDivHeight,
-		startIndex,
-		endIndex,
 	}
 }
 

@@ -24,11 +24,16 @@ const gamesAPI = createApi({
 			},
 			keepUnusedDataFor: 0,
 		}),
-		getGame: builder.query<ICurrentGame, number>({
+		getGame: builder.query<ICurrentGame, string>({
 			query: id => `/games/${id}?key=${import.meta.env.VITE_GAMES_API_KEY}`,
+		}),
+		getGameScreenshots: builder.query<any, string>({
+			query: id =>
+				`/games/${id}/screenshots?key=${import.meta.env.VITE_GAMES_API_KEY}`,
 		}),
 	}),
 })
 
 export default gamesAPI
-export const { useGetGamesQuery, useGetGameQuery } = gamesAPI
+export const { useGetGamesQuery, useGetGameQuery, useGetGameScreenshotsQuery } =
+	gamesAPI

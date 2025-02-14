@@ -1,10 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import styles from './styles.module.css'
-import { useAppDispatch } from '@/hooks/react-redux'
-import {
-	setIdCurrentGame,
-	setScreenshotCurrentGame,
-} from '@/store/slices/gamesSlice'
 import { IGame } from '@/interfaces/gamesInterface'
 import notFavoriteSVG from '../../../assets/notFavorite.svg'
 import favoriteSVG from '../../../assets/favorite.svg'
@@ -14,7 +9,7 @@ interface Props {
 	isFavoriteGame: boolean
 	addToMyGames: (game: IGame) => void
 	removeToMyGames: (id: number) => void
-	gameItemHeight?: number
+	gameItemHeight: number
 }
 
 const GameItem = ({
@@ -24,26 +19,16 @@ const GameItem = ({
 	isFavoriteGame,
 	gameItemHeight,
 }: Props) => {
-	const dispatch = useAppDispatch()
-
 	return (
-		<div style={{ height: gameItemHeight + 'px' }} className={styles.gameItem}>
+		<div style={{ height: gameItemHeight }} className={styles.gameItem}>
 			<div>
-				<img src={game.background_image} />
+				<img src={game.background_image} style={{ height: gameItemHeight }} />
 				<div className={styles.info}>
 					<h3>{game.name}</h3>
-					<p className={styles.italic}>Rating: {game.rating}</p>
-					<p className={styles.italic}>Release date: {game.released}</p>
+					<p>Rating: {game.rating}</p>
+					<p>Release date: {game.released}</p>
 
-					<NavLink
-						to={`/game`}
-						onClick={() => {
-							dispatch(setScreenshotCurrentGame(game.short_screenshots))
-							dispatch(setIdCurrentGame(game.id))
-						}}
-					>
-						Game Information {`→`}
-					</NavLink>
+					<NavLink to={`/games/${game.id}`}>Game Information {`→`}</NavLink>
 				</div>
 
 				{isFavoriteGame && (

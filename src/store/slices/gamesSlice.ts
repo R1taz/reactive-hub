@@ -14,10 +14,7 @@ interface State {
 	keywords: string
 	current_game: {
 		id_game: number | null
-		screenshots: {
-			id: number
-			image: string
-		}[]
+		screenshots: IShortScreenshot[]
 		info: ICurrentGame
 	}
 }

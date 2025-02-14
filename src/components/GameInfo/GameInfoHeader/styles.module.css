@@ -1,13 +1,12 @@
 .header {
 	border-radius: 20px;
-	background-color: var(--color-blue);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 20px 0px;
+	margin: 0px 0px;
 }
 
 .header h1 {
 	color: white;
-	margin: 10px 0px;
+	margin: 10px;
 }

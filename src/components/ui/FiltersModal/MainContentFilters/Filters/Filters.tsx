@@ -31,13 +31,14 @@ const Filters = ({
 
 	const virtualFiltersListRef = useRef<HTMLDivElement | null>(null)
 
-	const { virtualItems, topDivHeight, bottomDivHeight } = useVirtualScrolling({
-		items: filters,
-		rowHeight: filterItemHeight,
-		containerHeight: filterItemHeight * visibleFilterItem,
-		scrollElementRef: virtualFiltersListRef,
-		overscan: 1,
-	})
+	const { virtualItems, topDivHeight, bottomDivHeight } =
+		useVirtualScrolling<IFilter>({
+			items: filters,
+			rowHeight: filterItemHeight,
+			containerHeight: filterItemHeight * visibleFilterItem,
+			scrollElementRef: virtualFiltersListRef,
+			overscan: 1,
+		})
 
 	return (
 		<div className={styles.filters}>

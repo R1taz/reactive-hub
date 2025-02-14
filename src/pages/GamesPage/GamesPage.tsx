@@ -17,7 +17,7 @@ import { useGetGamesQuery } from '@/api/gamesAPI'
 
 import styles from './styles.module.css'
 
-const GamesCatalogPage = () => {
+const GamesPage = () => {
 	const games = useAppSelector(state => state.gamesSlice.games)
 	const current_page = useAppSelector(state => state.gamesSlice.current_page)
 	const page_size = useAppSelector(state => state.gamesSlice.page_size)
@@ -64,4 +64,4 @@ const GamesCatalogPage = () => {
 	)
 }
 
-export default GamesCatalogPage
+export default GamesPage
