@@ -9,7 +9,7 @@ interface State {
 
 const initialState: State = {
 	myGames: [],
-	gameItemHeight: 231,
+	gameItemHeight: 185,
 	visibleGameItem: 2,
 }
 

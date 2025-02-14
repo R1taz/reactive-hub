@@ -1,7 +1,9 @@
 import { useAppSelector } from '@/hooks/react-redux'
 import styles from './styles.module.css'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import ProfileGamesList from './ProfileGamesList/ProfileGamesList'
+import useVirtualScrolling from '@/hooks/useVirtualScrolling'
+import { IGame } from '@/interfaces/gamesInterface'
 
 const ProfileGames = () => {
 	const myFavoriteGames = useAppSelector(state => state.profileSlice.myGames)
@@ -13,26 +15,31 @@ const ProfileGames = () => {
 	)
 
 	const scrollElementRef = useRef<HTMLDivElement | null>(null)
-	const [start, setStart] = useState(0)
 
-	const onScroll: React.UIEventHandler<HTMLDivElement> = e => {
-		setStart(Math.floor(e.currentTarget.scrollTop / gameItemHeight))
-	}
-	const getTopHeight = () => gameItemHeight * start
-	const getBottomHeight = () => {
-		return gameItemHeight * (myFavoriteGames.length - (start + visibleGameItem))
-	}
+	const { virtualItems, topDivHeight, bottomDivHeight } =
+		useVirtualScrolling<IGame>({
+			items: myFavoriteGames,
+			rowHeight: gameItemHeight,
+			containerHeight: gameItemHeight * visibleGameItem,
+			scrollElementRef: scrollElementRef,
+			overscan: 1,
+		})
 
 	return (
 		<div
-			style={{ height: (gameItemHeight + 10) * visibleGameItem }}
-			className={styles.scrollElement}
 			ref={scrollElementRef}
-			onScroll={onScroll}
+			style={{
+				height: visibleGameItem * gameItemHeight,
+			}}
+			className={styles.virtualGameList}
 		>
-			<div style={{ height: getTopHeight() }}></div>
-			<ProfileGamesList start={start} />
-			<div style={{ height: getBottomHeight() }}></div>
+			<div style={{ height: topDivHeight }}></div>
+			<ProfileGamesList
+				containerHeight={visibleGameItem * gameItemHeight}
+				itemHeight={gameItemHeight}
+				games={virtualItems}
+			/>
+			<div style={{ height: bottomDivHeight }}></div>
 		</div>
 	)
 }

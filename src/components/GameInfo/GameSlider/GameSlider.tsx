@@ -9,10 +9,10 @@ interface Props {
 }
 
 const GameSlider = ({ screenshots }: Props) => {
-	const [currentScreen, setCurrentScreen] = useState(2)
+	const [currentScreen, setCurrentScreen] = useState(1)
 
 	const handlePrevScreen = () => {
-		if (currentScreen - 1 <= 1) {
+		if (currentScreen - 1 < 1) {
 			setCurrentScreen(screenshots.length)
 		} else {
 			setCurrentScreen(prev => prev - 1)
@@ -21,7 +21,7 @@ const GameSlider = ({ screenshots }: Props) => {
 
 	const handleNextScreen = () => {
 		if (currentScreen + 1 > screenshots.length) {
-			setCurrentScreen(2)
+			setCurrentScreen(1)
 		} else {
 			setCurrentScreen(prev => prev + 1)
 		}

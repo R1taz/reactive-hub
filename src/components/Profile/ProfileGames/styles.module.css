@@ -1,6 +1,6 @@
-.scrollElement {
+.virtualGameList {
 	grid-column: 2 / 3;
 	grid-row: 3 / 4;
 	padding: 0px 10px;
-	overflow-y: auto;
+	overflow-y: scroll;
 }
