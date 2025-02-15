@@ -9,6 +9,7 @@ import {
 } from '@/store/slices/newsSlice'
 import NewsCategory from './NewsCategory/NewsCategory'
 import { INewsCategories } from '@/interfaces/newsInterface'
+import ItemsPageSkeleton from '@/components/ui/ItemsPageSkeleton/ItemsPageSkeleton'
 
 interface Props {
 	selectedCategory: INewsCategories
@@ -44,7 +45,7 @@ const NewsCategories = ({ selectedCategory }: Props) => {
 		}
 	}
 
-	if (isLoading && categories.length <= 1) return <div>Skeleton</div>
+	if (isLoading && categories.length <= 1) return <ItemsPageSkeleton />
 
 	return (
 		<div className={styles.carousel}>

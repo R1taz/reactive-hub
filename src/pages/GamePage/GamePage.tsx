@@ -17,25 +17,25 @@ import {
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styles from './styles.module.css'
+import Loading from '@/components/ui/Loading/Loading'
 
 const GamePage = () => {
 	const current_game = useAppSelector(state => state.gamesSlice.current_game)
 	const dispatch = useAppDispatch()
 
 	const { id } = useParams()
-	const { data: dataGame, isFetching: loadingGame } = useGetGameQuery(id!)
-	const { data, isFetching: loadingScreenshots } = useGetGameScreenshotsQuery(
-		id!
-	)
+	const { data: dataGame } = useGetGameQuery(id!)
+	const { data: dataScreenshots } = useGetGameScreenshotsQuery(id!)
 
 	useEffect(() => {
 		if (
-			data &&
-			JSON.stringify(data.results) !== JSON.stringify(current_game.screenshots)
+			dataScreenshots &&
+			JSON.stringify(dataScreenshots.results) !==
+				JSON.stringify(current_game.screenshots)
 		) {
-			dispatch(setScreenshotCurrentGame(data.results))
+			dispatch(setScreenshotCurrentGame(dataScreenshots.results))
 		}
-	}, [data])
+	}, [dataScreenshots])
 
 	useEffect(() => {
 		if (
@@ -47,8 +47,9 @@ const GamePage = () => {
 		}
 	}, [dataGame])
 
-	if (loadingGame || loadingScreenshots || !current_game.id_game)
-		return <h1>Loading...</h1>
+	if (!current_game.screenshots.length || !current_game.id_game) {
+		return <Loading />
+	}
 
 	return (
 		<div className={styles.game}>

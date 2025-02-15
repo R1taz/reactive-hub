@@ -3,6 +3,7 @@ import styles from './styles.module.css'
 import { useState } from 'react'
 import nextArrowSVG from '../../../assets/next-arrow.svg'
 import prevArrowSVG from '../../../assets/prev-arrow.svg'
+import Loading from '@/components/ui/Loading/Loading'
 
 interface Props {
 	screenshots: IShortScreenshot[]
@@ -10,26 +11,32 @@ interface Props {
 
 const GameSlider = ({ screenshots }: Props) => {
 	const [currentScreen, setCurrentScreen] = useState(1)
+	const [isLoadingScreenshot, setIsLoadingScreenshot] = useState(false)
 
 	const handlePrevScreen = () => {
-		if (currentScreen - 1 < 1) {
-			setCurrentScreen(screenshots.length)
-		} else {
-			setCurrentScreen(prev => prev - 1)
-		}
+		setCurrentScreen(prev => (prev - 1 < 1 ? screenshots.length : prev - 1))
+		setIsLoadingScreenshot(true)
 	}
 
 	const handleNextScreen = () => {
-		if (currentScreen + 1 > screenshots.length) {
-			setCurrentScreen(1)
-		} else {
-			setCurrentScreen(prev => prev + 1)
-		}
+		setCurrentScreen(prev => (prev + 1 > screenshots.length ? 1 : prev + 1))
+		setIsLoadingScreenshot(true)
 	}
 
 	return (
 		<div className={styles.slider}>
-			<img src={screenshots[currentScreen - 1].image} alt='game screenhot' />
+			<div className={styles.divScreenshot}>
+				{isLoadingScreenshot && (
+					<Loading top={50} bottom={50} left={50} right={50} />
+				)}
+				<img
+					className={styles.screenshot}
+					src={screenshots[currentScreen - 1].image}
+					alt='game screenshot'
+					onLoad={() => setIsLoadingScreenshot(false)}
+				/>
+			</div>
+
 			<button className={styles.prev} onClick={handlePrevScreen}>
 				<img src={prevArrowSVG} alt='prev-arrow' />
 			</button>
