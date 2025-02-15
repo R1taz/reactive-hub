@@ -16,6 +16,7 @@ import {
 import { useGetGamesQuery } from '@/api/gamesAPI'
 
 import styles from './styles.module.css'
+import ItemsPageSkeleton from '@/components/ui/ItemsPageSkeleton/ItemsPageSkeleton'
 
 const GamesPage = () => {
 	const games = useAppSelector(state => state.gamesSlice.games)
@@ -41,7 +42,7 @@ const GamesPage = () => {
 		}
 	}, [data, dispatch])
 
-	if (isLoading) return <div>Loading...</div>
+	if (isLoading) return <ItemsPageSkeleton />
 	if (error) return <div>Oops, error!!!</div>
 
 	return (
