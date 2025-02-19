@@ -38,6 +38,7 @@ const Paginator = ({
 			<button
 				key={i}
 				onClick={() => setPage(i)}
+				disabled={i === current_page}
 				className={i === current_page ? styles.active : ''}
 			>
 				{i}

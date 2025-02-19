@@ -11,7 +11,7 @@ interface Props {
 
 const GameSlider = ({ screenshots }: Props) => {
 	const [currentScreen, setCurrentScreen] = useState(1)
-	const [isLoadingScreenshot, setIsLoadingScreenshot] = useState(false)
+	const [isLoadingScreenshot, setIsLoadingScreenshot] = useState(true)
 
 	const handlePrevScreen = () => {
 		setCurrentScreen(prev => (prev - 1 < 1 ? screenshots.length : prev - 1))

@@ -11,6 +11,7 @@ interface State {
 	visibleGameItem: number
 	gameItemHeight: number
 	overscan: number
+	isLoadingPage: boolean
 	current_page: number
 	page_size: number
 	portion_size: number
@@ -29,6 +30,7 @@ const initialState: State = {
 	visibleGameItem: 2,
 	gameItemHeight: 185,
 	overscan: 2,
+	isLoadingPage: false,
 	current_page: 1,
 	page_size: 10,
 	portion_size: 5,
@@ -109,6 +111,10 @@ const gamesSlice = createSlice({
 	reducers: {
 		setGames(state, action: PayloadAction<IGame[]>) {
 			state.games = action.payload
+			state.isLoadingPage = false
+		},
+		setIsLoadingPage(state) {
+			state.isLoadingPage = true
 		},
 		setCurrentPage(state, action: PayloadAction<number>) {
 			state.current_page = action.payload
@@ -140,6 +146,7 @@ const gamesSlice = createSlice({
 export default gamesSlice.reducer
 export const {
 	setGames,
+	setIsLoadingPage,
 	setCurrentPage,
 	setTotalCount,
 	setScreenshotCurrentGame,

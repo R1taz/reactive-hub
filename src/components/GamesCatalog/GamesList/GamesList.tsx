@@ -6,6 +6,7 @@ import {
 	removeToMyFavoriteGames,
 } from '@/store/slices/gamesSlice'
 import styles from './styles.module.css'
+import Skeleton from '@/components/ui/Skeleton/Skeleton'
 
 interface Props {
 	games: IGame[]
@@ -16,11 +17,13 @@ const GamesList = ({ games }: Props) => {
 	const gameItemHeight = useAppSelector(
 		state => state.gamesSlice.gameItemHeight
 	)
+	const isLoadingPage = useAppSelector(state => state.gamesSlice.isLoadingPage)
 	const dispatch = useAppDispatch()
 
 	return (
 		<>
-			{games.length !== 0 && (
+			{isLoadingPage && <Skeleton count={20} type='item' />}
+			{games.length !== 0 && !isLoadingPage && (
 				<div className={styles.gamesList}>
 					{games.map(game => (
 						<GameItem
