@@ -1,6 +1,6 @@
 import Paginator from '@/components/ui/Paginator/Paginator'
 import { useAppDispatch, useAppSelector } from '@/hooks/react-redux'
-import { setCurrentPage } from '@/store/slices/gamesSlice'
+import { setCurrentPage, setIsLoadingPage } from '@/store/slices/gamesSlice'
 
 const GamesCatalogPaginator = () => {
 	const total_count = useAppSelector(state => state.gamesSlice.total_count)
@@ -15,7 +15,10 @@ const GamesCatalogPaginator = () => {
 			current_page={current_page}
 			page_size={page_size}
 			portion_size={portion_size}
-			setPage={page => dispatch(setCurrentPage(page))}
+			setPage={page => {
+				dispatch(setIsLoadingPage())
+				dispatch(setCurrentPage(page))
+			}}
 		/>
 	)
 }
