@@ -7,6 +7,7 @@ import { resetNews, setNews } from '@/store/slices/newsSlice'
 import Search from '@/components/ui/Search/Search'
 import { setCurrentPage, setKeywords } from '@/store/slices/newsSlice'
 import NewsCategories from '@/components/News/NewsCategories/NewsCategories'
+import Loading from '@/components/ui/Loading/Loading'
 
 const NewsPage = () => {
 	const news = useAppSelector(state => state.newsSlice.news)
@@ -86,9 +87,17 @@ const NewsPage = () => {
 					resetContentItems={() => dispatch(resetNews())}
 				/>
 			</div>
-			{isFetching && news.length === 0 && <h1>Loading...</h1>}
+			{isFetching && news.length === 0 && (
+				<div className={styles.loader}>
+					<Loading />
+				</div>
+			)}
 			<NewsList news={news} lastNewsElementRef={lastNewsElementRef} />
-			{isFetching && news.length !== 0 && <h1>Loading...</h1>}
+			{isFetching && news.length !== 0 && (
+				<div className={styles.loader}>
+					<Loading />
+				</div>
+			)}
 		</>
 	)
 }
