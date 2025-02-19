@@ -1,21 +1,20 @@
 import { useAppSelector } from '@/hooks/react-redux'
 import styles from './styles.module.css'
-import useGetDataFilters from '@/hooks/useGetDataFilters'
 import { useState } from 'react'
 import { IActiveFilters } from '@/interfaces/filtersInterface'
 import ButtonApply from './ButtonApply/ButtonApply'
 import LoadingFilters from './LoadingFilters/LoadingFilters'
 import MainContentFilters from './MainContentFilters/MainContentFilters'
 import ButtonClose from '../ButtonClose/ButtonClose'
+import { getDataFilters } from '@/helpers/getDataFilters'
 
 interface Props {
 	closeModal: (value: React.SetStateAction<boolean>) => void
 }
 
 const FiltersModal = ({ closeModal }: Props) => {
-	const countFilters = useAppSelector(state => state.filtersSlice.countFilters)
+	const { isFetching } = getDataFilters()
 
-	const allIsLoading = useGetDataFilters({ countFilters: countFilters })
 	const globalActiveFilters = useAppSelector(
 		state => state.filtersSlice.activeFilters
 	)
@@ -25,10 +24,10 @@ const FiltersModal = ({ closeModal }: Props) => {
 
 	return (
 		<>
-			<div className={styles.modal}>
-				{allIsLoading !== 0 && <LoadingFilters closeModal={closeModal} />}
+			<div className={styles.modal} style={{ height: isFetching ? 150 : '' }}>
+				{isFetching && <LoadingFilters closeModal={closeModal} />}
 
-				{allIsLoading === 0 && (
+				{!isFetching && (
 					<>
 						<ButtonClose closeModal={closeModal} />
 						<MainContentFilters
