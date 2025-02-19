@@ -26,3 +26,8 @@ export interface IActiveFilters {
 	genres: number[]
 	tags: number[]
 }
+
+export type PayloadActionSetFilters = {
+	category: ICategoriesGamesFilters
+	data: any[]
+}[]
