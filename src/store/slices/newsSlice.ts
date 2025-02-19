@@ -6,6 +6,7 @@ interface State {
 	categories: INewsCategories[]
 	selectedCategory: INewsCategories
 	keywords: string
+	newsItemHeight: number
 	current_page: number
 	page_size: number
 	scrollLeft: number
@@ -16,6 +17,7 @@ const initialState: State = {
 	categories: ['all'],
 	selectedCategory: 'all',
 	keywords: '',
+	newsItemHeight: 185,
 	current_page: 1,
 	page_size: 10,
 	scrollLeft: 0,

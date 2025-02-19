@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/react-redux'
 import {
 	addToMyFavoriteGames,
 	removeToMyFavoriteGames,
-} from '@/store/slices/profileSlice'
+} from '@/store/slices/gamesSlice'
 import styles from './styles.module.css'
 
 interface Props {
@@ -12,9 +12,9 @@ interface Props {
 }
 
 const GamesList = ({ games }: Props) => {
-	const myFavoriteGames = useAppSelector(state => state.profileSlice.myGames)
+	const myFavoriteGames = useAppSelector(state => state.gamesSlice.myGames)
 	const gameItemHeight = useAppSelector(
-		state => state.profileSlice.gameItemHeight
+		state => state.gamesSlice.gameItemHeight
 	)
 	const dispatch = useAppDispatch()
 

@@ -7,6 +7,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface State {
 	games: IGame[]
+	myGames: IGame[]
+	visibleGameItem: number
+	gameItemHeight: number
 	current_page: number
 	page_size: number
 	portion_size: number
@@ -21,6 +24,9 @@ interface State {
 
 const initialState: State = {
 	games: [],
+	myGames: [],
+	visibleGameItem: 2,
+	gameItemHeight: 185,
 	current_page: 1,
 	page_size: 10,
 	portion_size: 5,
@@ -120,6 +126,12 @@ const gamesSlice = createSlice({
 		setKeywords(state, action: PayloadAction<string>) {
 			state.keywords = action.payload
 		},
+		addToMyFavoriteGames(state, action: PayloadAction<IGame>) {
+			state.myGames.push(action.payload)
+		},
+		removeToMyFavoriteGames(state, action: PayloadAction<number>) {
+			state.myGames = state.myGames.filter(game => game.id !== action.payload)
+		},
 	},
 })
 
@@ -132,4 +144,6 @@ export const {
 	setIdCurrentGame,
 	setInfoCurrentGame,
 	setKeywords,
+	addToMyFavoriteGames,
+	removeToMyFavoriteGames,
 } = gamesSlice.actions

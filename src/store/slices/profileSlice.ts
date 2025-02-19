@@ -1,31 +1,14 @@
-import { IGame } from '@/interfaces/gamesInterface'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-interface State {
-	myGames: IGame[]
-	gameItemHeight: number
-	visibleGameItem: number
-}
+interface State {}
 
-const initialState: State = {
-	myGames: [],
-	gameItemHeight: 185,
-	visibleGameItem: 2,
-}
+const initialState: State = {}
 
 const profileSlice = createSlice({
 	name: 'profileSlice',
 	initialState,
-	reducers: {
-		addToMyFavoriteGames(state, action: PayloadAction<IGame>) {
-			state.myGames.push(action.payload)
-		},
-		removeToMyFavoriteGames(state, action: PayloadAction<number>) {
-			state.myGames = state.myGames.filter(game => game.id !== action.payload)
-		},
-	},
+	reducers: {},
 })
 
 export default profileSlice.reducer
-export const { addToMyFavoriteGames, removeToMyFavoriteGames } =
-	profileSlice.actions
+export const {} = profileSlice.actions
