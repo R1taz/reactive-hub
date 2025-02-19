@@ -22,7 +22,7 @@ const gamesAPI = createApi({
 
 				return query
 			},
-			keepUnusedDataFor: 0,
+			keepUnusedDataFor: 60,
 		}),
 		getGame: builder.query<ICurrentGame, string>({
 			query: id => `/games/${id}?key=${import.meta.env.VITE_GAMES_API_KEY}`,

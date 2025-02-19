@@ -24,8 +24,9 @@ const GamePage = () => {
 	const dispatch = useAppDispatch()
 
 	const { id } = useParams()
-	const { data: dataGame } = useGetGameQuery(id!)
-	const { data: dataScreenshots } = useGetGameScreenshotsQuery(id!)
+	const { data: dataGame, isFetching: isFetchingGame } = useGetGameQuery(id!)
+	const { data: dataScreenshots, isFetching: isFetchingScreenshots } =
+		useGetGameScreenshotsQuery(id!)
 
 	useEffect(() => {
 		if (
@@ -47,7 +48,12 @@ const GamePage = () => {
 		}
 	}, [dataGame])
 
-	if (!current_game.screenshots.length || !current_game.id_game) {
+	if (
+		!current_game.screenshots.length ||
+		!current_game.id_game ||
+		isFetchingGame ||
+		isFetchingScreenshots
+	) {
 		return <Loading />
 	}
 
