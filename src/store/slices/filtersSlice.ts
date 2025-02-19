@@ -2,6 +2,7 @@ import {
 	IActiveFilters,
 	ICategoriesGamesFilters,
 	IFilter,
+	PayloadActionSetFilters,
 } from '@/interfaces/filtersInterface'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
@@ -56,34 +57,13 @@ const filtersSlice = createSlice({
 		setActiveFilters(state, action: PayloadAction<IActiveFilters>) {
 			state.activeFilters = action.payload
 		},
-		setPlatforms(state, action) {
-			state.platforms = action.payload
-		},
-		setStores(state, action) {
-			state.stores = action.payload
-		},
-		setDevelopers(state, action) {
-			state.developers = action.payload
-		},
-		setPublishers(state, action) {
-			state.publishers = action.payload
-		},
-		setGenres(state, action) {
-			state.genres = action.payload
-		},
-		setTags(state, action) {
-			state.tags = action.payload
+		setFilters(state, action: PayloadAction<PayloadActionSetFilters>) {
+			for (let i = 0; i < action.payload.length; i++) {
+				state[action.payload[i].category] = action.payload[i].data
+			}
 		},
 	},
 })
 
 export default filtersSlice.reducer
-export const {
-	setPlatforms,
-	setStores,
-	setDevelopers,
-	setPublishers,
-	setGenres,
-	setTags,
-	setActiveFilters,
-} = filtersSlice.actions
+export const { setActiveFilters, setFilters } = filtersSlice.actions
