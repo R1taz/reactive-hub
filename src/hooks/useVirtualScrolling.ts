@@ -39,7 +39,7 @@ const useVirtualScrolling = <T>({
 	)
 
 	const topDivHeight = startIndex * rowHeight
-	const bottomDivHeight = (items.length - endIndex) * rowHeight
+	const bottomDivHeight = Math.max(0, (items.length - endIndex) * rowHeight)
 
 	const virtualItems = items.slice(startIndex, endIndex + 1)
 

@@ -28,6 +28,7 @@ const Filters = ({
 	const visibleFilterItem = useAppSelector(
 		state => state.filtersSlice.visibleFilterItem
 	)
+	const overscan = useAppSelector(state => state.filtersSlice.overscan)
 
 	const virtualFiltersListRef = useRef<HTMLDivElement | null>(null)
 
@@ -37,7 +38,7 @@ const Filters = ({
 			rowHeight: filterItemHeight,
 			containerHeight: filterItemHeight * visibleFilterItem,
 			scrollElementRef: virtualFiltersListRef,
-			overscan: 1,
+			overscan: overscan,
 		})
 
 	return (
