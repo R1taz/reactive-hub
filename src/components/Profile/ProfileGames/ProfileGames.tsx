@@ -6,12 +6,12 @@ import useVirtualScrolling from '@/hooks/useVirtualScrolling'
 import { IGame } from '@/interfaces/gamesInterface'
 
 const ProfileGames = () => {
-	const myFavoriteGames = useAppSelector(state => state.profileSlice.myGames)
+	const myFavoriteGames = useAppSelector(state => state.gamesSlice.myGames)
 	const gameItemHeight = useAppSelector(
-		state => state.profileSlice.gameItemHeight
+		state => state.gamesSlice.gameItemHeight
 	)
 	const visibleGameItem = useAppSelector(
-		state => state.profileSlice.visibleGameItem
+		state => state.gamesSlice.visibleGameItem
 	)
 
 	const scrollElementRef = useRef<HTMLDivElement | null>(null)

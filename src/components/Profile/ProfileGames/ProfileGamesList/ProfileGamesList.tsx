@@ -4,7 +4,7 @@ import { IGame } from '@/interfaces/gamesInterface'
 import {
 	addToMyFavoriteGames,
 	removeToMyFavoriteGames,
-} from '@/store/slices/profileSlice'
+} from '@/store/slices/gamesSlice'
 import styles from './styles.module.css'
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const ProfileGamesList = ({ games, containerHeight, itemHeight }: Props) => {
-	const myFavoriteGames = useAppSelector(state => state.profileSlice.myGames)
+	const myFavoriteGames = useAppSelector(state => state.gamesSlice.myGames)
 	const dispatch = useAppDispatch()
 
 	return (
