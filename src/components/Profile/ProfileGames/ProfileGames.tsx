@@ -13,6 +13,7 @@ const ProfileGames = () => {
 	const visibleGameItem = useAppSelector(
 		state => state.gamesSlice.visibleGameItem
 	)
+	const overscan = useAppSelector(state => state.gamesSlice.overscan)
 
 	const scrollElementRef = useRef<HTMLDivElement | null>(null)
 
@@ -22,7 +23,7 @@ const ProfileGames = () => {
 			rowHeight: gameItemHeight,
 			containerHeight: gameItemHeight * visibleGameItem,
 			scrollElementRef: scrollElementRef,
-			overscan: 1,
+			overscan: overscan,
 		})
 
 	return (

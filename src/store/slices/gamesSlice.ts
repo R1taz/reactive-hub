@@ -10,6 +10,7 @@ interface State {
 	myGames: IGame[]
 	visibleGameItem: number
 	gameItemHeight: number
+	overscan: number
 	current_page: number
 	page_size: number
 	portion_size: number
@@ -27,6 +28,7 @@ const initialState: State = {
 	myGames: [],
 	visibleGameItem: 2,
 	gameItemHeight: 185,
+	overscan: 2,
 	current_page: 1,
 	page_size: 10,
 	portion_size: 5,

@@ -10,6 +10,7 @@ interface State {
 	filterItemHeight: number
 	visibleFilterItem: number
 	countFilters: number
+	overscan: number
 	platforms: IFilter[]
 	stores: IFilter[]
 	developers: IFilter[]
@@ -45,6 +46,7 @@ const initialState: State = {
 	filterItemHeight: 30,
 	visibleFilterItem: 5,
 	countFilters: 6,
+	overscan: 2,
 }
 
 const filtersSlice = createSlice({
