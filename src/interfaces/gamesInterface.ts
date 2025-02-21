@@ -1,3 +1,5 @@
+import { IActiveFilters } from './filtersInterface'
+
 interface IRating {
 	id: number
 	title: string
@@ -205,4 +207,66 @@ export interface ICurrentGame {
 	}
 	clip: string | null
 	description_raw: string
+}
+
+export type TypesListItemsCarousel = IPlatform | IStore
+
+export type ResponseGetGame = ResponseGetAllGames | ResponseGetFilteredGames
+
+interface ResponseGetAllGames {
+	count: number
+	next: string | null
+	previous: string | null
+	results: IGame[]
+	seo_title: 'All Games'
+	seo_description: ''
+	seo_keywords: ''
+	seo_h1: 'All Games'
+	noindex: false
+	nofollow: false
+	description: ''
+	filters: {
+		years: {
+			from: number
+			to: number
+			filter: string
+			decade: number
+			years: {
+				year: number
+				count: number
+				nofollow: boolean
+			}[]
+			nofollow: boolean
+			count: number
+		}[]
+	}
+	nofollow_collections: string[]
+}
+
+interface ResponseGetFilteredGames {
+	count: number
+	next: string | null
+	previous: string | null
+	results: IGame[]
+	user_platforms: false
+}
+
+export interface RequestGetGame {
+	page: number
+	page_size: number
+	search: string
+	activeFilters: IActiveFilters
+}
+
+export interface ResponseGetGameScreenshots {
+	count: number
+	next: string | null
+	previous: string | null
+	results: {
+		id: number
+		image: string
+		width: number
+		height: number
+		is_deleted: boolean
+	}[]
 }

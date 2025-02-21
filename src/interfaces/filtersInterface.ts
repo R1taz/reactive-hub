@@ -1,9 +1,9 @@
 export interface IFilter {
-	games: {}[]
+	games: any[]
 	games_count: number
 	id: number
-	image: URL | null
-	image_background: URL
+	image: string | null
+	image_background: string
 	name: string
 	slug: string
 	year_end: number | null
@@ -29,5 +29,24 @@ export interface IActiveFilters {
 
 export type PayloadActionSetFilters = {
 	category: ICategoriesGamesFilters
-	data: any[]
+	data: any
 }[]
+
+export interface FiltersState {
+	filtersSlice: {
+		categoriesFilters: string[]
+	}
+}
+
+export type ResponseGetFilters = GetFiltersData[] | GetFiltersError
+
+export interface GetFiltersData {
+	category: ICategoriesGamesFilters
+	data: { results: IFilter[] }
+}
+export interface GetFiltersError {
+	error: {
+		status: string
+		message: string
+	}
+}

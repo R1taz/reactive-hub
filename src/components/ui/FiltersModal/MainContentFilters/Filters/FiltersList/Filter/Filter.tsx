@@ -9,8 +9,8 @@ interface Props {
 	filter: { name: string; id: number }
 	height: number
 	categoryTitle: ICategoriesGamesFilters
-	setActiveFilters: React.Dispatch<React.SetStateAction<IActiveFilters>>
 	activeFilters: IActiveFilters
+	setActiveFilters: (activeFilters: IActiveFilters) => void
 }
 
 const Filter = ({
@@ -26,17 +26,23 @@ const Filter = ({
 
 	const handleClick = () => {
 		if (!isActive) {
-			setActiveFilters(prev => ({
-				...prev,
-				[categoryTitle]: [...prev[categoryTitle], filter.id],
-			}))
+			const newActiveFilters = {
+				...activeFilters,
+				[categoryTitle]: [...activeFilters[categoryTitle], filter.id],
+			}
+
+			setActiveFilters(newActiveFilters)
 		}
 
 		if (isActive) {
-			setActiveFilters(prev => ({
-				...prev,
-				[categoryTitle]: prev[categoryTitle].filter(id => id !== filter.id),
-			}))
+			const newActiveFilters = {
+				...activeFilters,
+				[categoryTitle]: activeFilters[categoryTitle].filter(
+					id => id !== filter.id
+				),
+			}
+
+			setActiveFilters(newActiveFilters)
 		}
 
 		setIsActive(prev => !prev)

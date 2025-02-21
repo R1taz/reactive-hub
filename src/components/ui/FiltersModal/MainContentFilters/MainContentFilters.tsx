@@ -4,7 +4,7 @@ import Filters from './Filters/Filters'
 
 interface Props {
 	activeFilters: IActiveFilters
-	setActiveFilters: React.Dispatch<React.SetStateAction<IActiveFilters>>
+	setActiveFilters: (activeFilters: IActiveFilters) => void
 }
 
 const MainContentFilters = ({ activeFilters, setActiveFilters }: Props) => {

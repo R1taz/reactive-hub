@@ -2,7 +2,7 @@ import styles from './styles.module.css'
 import closeModalIMG from '../../../assets/closeOpen.png'
 
 interface Props {
-	closeModal: () => (value: React.SetStateAction<boolean>) => void
+	closeModal: () => void
 }
 
 const ButtonClose = ({ closeModal }: Props) => {

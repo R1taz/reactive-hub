@@ -12,8 +12,8 @@ import useVirtualScrolling from '@/hooks/useVirtualScrolling'
 interface Props {
 	categoryTitle: ICategoriesGamesFilters
 	filters: IFilter[]
-	setActiveFilters: React.Dispatch<React.SetStateAction<IActiveFilters>>
 	activeFilters: IActiveFilters
+	setActiveFilters: (activeFilters: IActiveFilters) => void
 }
 
 const Filters = ({
