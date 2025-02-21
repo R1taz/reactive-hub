@@ -1,14 +1,20 @@
-export interface ResponseGetApiNews {
+export interface ResponseGetNews {
 	status: string
 	news: INews[]
 	page: number
 }
 
-export interface RequestGetApiNews {
+export interface RequestGetNews {
 	page_number: number
 	page_size: number
 	keywords: string
 	category: INewsCategories
+}
+
+export interface ResponseGetCategoriesNews {
+	categories: INewsCategories[]
+	description: string
+	status: string
 }
 
 export interface INews {

@@ -59,7 +59,7 @@ const filtersSlice = createSlice({
 		},
 		setFilters(state, action: PayloadAction<PayloadActionSetFilters>) {
 			for (let i = 0; i < action.payload.length; i++) {
-				state[action.payload[i].category] = action.payload[i].data
+				state[action.payload[i].category] = action.payload[i].data.results
 			}
 		},
 	},

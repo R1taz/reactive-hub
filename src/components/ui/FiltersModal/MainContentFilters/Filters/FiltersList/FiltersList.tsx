@@ -11,8 +11,8 @@ interface Props {
 	filters: IFilter[]
 	containerHeight: number
 	categoryTitle: ICategoriesGamesFilters
-	setActiveFilters: React.Dispatch<React.SetStateAction<IActiveFilters>>
 	activeFilters: IActiveFilters
+	setActiveFilters: (activeFilters: IActiveFilters) => void
 }
 
 const FiltersList = ({
