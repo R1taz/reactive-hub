@@ -2,7 +2,7 @@ import Loading from '../../Loading/Loading'
 import ButtonClose from '../../ButtonClose/ButtonClose'
 
 interface Props {
-	closeModal: () => (value: React.SetStateAction<boolean>) => void
+	closeModal: () => void
 }
 
 const LoadingFilters = ({ closeModal }: Props) => {

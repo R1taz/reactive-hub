@@ -9,7 +9,7 @@ import ButtonClose from '../ButtonClose/ButtonClose'
 import { getDataFilters } from '@/helpers/getDataFilters'
 
 interface Props {
-	closeModal: (value: React.SetStateAction<boolean>) => void
+	closeModal: () => void
 }
 
 const FiltersModal = ({ closeModal }: Props) => {
@@ -32,8 +32,9 @@ const FiltersModal = ({ closeModal }: Props) => {
 						<ButtonClose closeModal={closeModal} />
 						<MainContentFilters
 							activeFilters={activeFilters}
-							setActiveFilters={setActiveFilters}
-							closeModal={closeModal}
+							setActiveFilters={(activeFilters: IActiveFilters) =>
+								setActiveFilters(activeFilters)
+							}
 						/>
 						<ButtonApply
 							activeFilters={activeFilters}

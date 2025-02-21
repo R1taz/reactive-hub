@@ -1,11 +1,15 @@
+import { TypesListItemsCarousel } from '@/interfaces/gamesInterface'
 import styles from './styles.module.css'
 
-interface Props {
+interface Props<T> {
 	titleList: string
-	listItems: { [k in string]: { name: string } }[]
+	listItems: T[]
 }
 
-const ListItemsCarousel = ({ titleList, listItems }: Props) => {
+const ListItemsCarousel = <T extends TypesListItemsCarousel>({
+	titleList,
+	listItems,
+}: Props<T>) => {
 	if (!listItems.length) return <div></div>
 
 	return (
@@ -18,10 +22,16 @@ const ListItemsCarousel = ({ titleList, listItems }: Props) => {
 						<div key={index} className={styles.item}>
 							<span>
 								{Object.keys(item)
-									.filter(
-										key => typeof item[key] === 'object' && item[key]?.name
-									)
-									.map(key => item[key].name)}
+									.map(key => {
+										const itemKey = key as keyof T
+										const value = item[itemKey]
+										if (typeof value === 'object' && value && 'name' in value) {
+											return value.name
+										} else {
+											return null
+										}
+									})
+									.filter((name): name is string => name !== null)}
 							</span>
 						</div>
 					))}
