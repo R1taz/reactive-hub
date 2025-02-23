@@ -1,7 +1,7 @@
 import { useAppDispatch } from '@/hooks/react-redux'
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import { useDebounce } from '@/hooks/useDebounce'
+import { useDebounce } from '@/hooks/useDebounce.ts'
 
 interface Props {
 	chapter: string

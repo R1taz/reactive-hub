@@ -14,3 +14,16 @@
 .virtualFiltersList {
 	overflow-y: scroll;
 }
+
+.virtualFiltersList::-webkit-scrollbar {
+	width: 6px;
+}
+
+.virtualFiltersList::-webkit-scrollbar-thumb {
+	background: rgb(0, 120, 240);
+	border-radius: 4px;
+}
+
+.virtualFiltersList::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+}

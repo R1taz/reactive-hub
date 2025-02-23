@@ -8,6 +8,11 @@
 	background-color: inherit;
 	border: none;
 	color: white;
+	cursor: pointer;
+}
+
+.paginator button:hover:not(.active) {
+	color: #ccc;
 }
 
 .paginator .active {

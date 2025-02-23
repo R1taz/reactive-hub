@@ -27,7 +27,7 @@ interface State {
 const initialState: State = {
 	games: [],
 	myGames: [],
-	visibleGameItem: 2,
+	visibleGameItem: 3,
 	gameItemHeight: 185,
 	overscan: 2,
 	isLoadingPage: false,

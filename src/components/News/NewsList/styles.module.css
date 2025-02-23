@@ -1,5 +1,6 @@
 .newsList {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 25px;
+	margin: 10px 0px 30px;
 }

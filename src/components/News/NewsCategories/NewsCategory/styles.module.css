@@ -2,11 +2,19 @@
 	border-radius: 15px;
 	background-color: var(--color-blue);
 	color: white;
-	padding: 5px 35px;
-	margin: 0px 10px;
+	padding: 5px 20px;
+	margin: 0px 7px;
+	cursor: pointer;
 }
 
 .category.active {
 	background-color: white;
 	color: var(--color-blue);
+}
+
+@media (max-width: 425px) {
+	.category {
+		padding: 5px 35px;
+		margin: 5px 0px;
+	}
 }

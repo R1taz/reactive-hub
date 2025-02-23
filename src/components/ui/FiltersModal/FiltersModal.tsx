@@ -24,24 +24,35 @@ const FiltersModal = ({ closeModal }: Props) => {
 
 	return (
 		<>
-			<div className={styles.modal} style={{ height: isFetching ? 150 : '' }}>
-				{isFetching && <LoadingFilters closeModal={closeModal} />}
+			<div
+				className={styles.modalOverlay}
+				id='modalOverlay'
+				onClick={event => {
+					if ((event.target as HTMLElement).id === 'modalOverlay') closeModal()
+				}}
+			>
+				<div
+					className={styles.modalContent}
+					style={{ height: isFetching ? 150 : '' }}
+				>
+					{isFetching && <LoadingFilters closeModal={closeModal} />}
 
-				{!isFetching && (
-					<>
-						<ButtonClose closeModal={closeModal} />
-						<MainContentFilters
-							activeFilters={activeFilters}
-							setActiveFilters={(activeFilters: IActiveFilters) =>
-								setActiveFilters(activeFilters)
-							}
-						/>
-						<ButtonApply
-							activeFilters={activeFilters}
-							closeModal={closeModal}
-						/>
-					</>
-				)}
+					{!isFetching && (
+						<>
+							<ButtonClose closeModal={closeModal} />
+							<MainContentFilters
+								activeFilters={activeFilters}
+								setActiveFilters={(activeFilters: IActiveFilters) =>
+									setActiveFilters(activeFilters)
+								}
+							/>
+							<ButtonApply
+								activeFilters={activeFilters}
+								closeModal={closeModal}
+							/>
+						</>
+					)}
+				</div>
 			</div>
 		</>
 	)

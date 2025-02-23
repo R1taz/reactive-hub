@@ -4,3 +4,16 @@
 	padding: 0px 10px;
 	overflow-y: scroll;
 }
+
+.virtualGameList::-webkit-scrollbar {
+	width: 7px;
+}
+
+.virtualGameList::-webkit-scrollbar-thumb {
+	background: rgb(0, 120, 240);
+	border-radius: 4px;
+}
+
+.virtualGameList::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+}
