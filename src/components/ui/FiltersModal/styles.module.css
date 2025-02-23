@@ -1,25 +1,35 @@
-.modal {
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(22, 22, 22, 0.1);
+	backdrop-filter: blur(5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+}
+
+.modalContent {
 	background-color: white;
-	padding: 20px 40px;
-
-	z-index: 1;
-	position: absolute;
-	left: 0%;
-	right: 0%;
-
-	margin: auto;
+	padding: 10px 30px;
 	width: 75%;
+
+	position: relative;
+	z-index: 20;
 	border-radius: 20px;
 }
 
-.modal h1 {
+.modalContent h1 {
 	margin: 0px;
 	text-align: center;
 	color: var(--color-blue);
 	font-weight: 500;
 }
 
-.modal > div {
+.modalContent > div {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;

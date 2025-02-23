@@ -1,19 +1,21 @@
 .item {
 	display: flex;
 	background-color: var(--color-gray);
+	width: 100%;
 	border-radius: 20px;
 	background-color: white;
 }
 
 .photoNews {
-	width: 200px;
+	min-width: 200px;
+	width: 100%;
+	max-width: 250px;
 }
 
-.photoNews img,
-.photoNews div {
+.photoNews img {
 	object-fit: cover;
 	background-color: var(--color-gray);
-	width: 200px;
+	width: 100%;
 	height: 100%;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
@@ -33,6 +35,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	min-height: 1.5em;
 }
 
 .newsContent p {
@@ -49,6 +52,69 @@
 
 .metadata {
 	display: flex;
-	justify-content: space-between;
+	gap: 20px;
 	color: var(--color-gray);
+}
+
+.metadata span {
+	text-align: center;
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+	.photoNews {
+		min-width: 200px;
+		width: 100%;
+		max-width: 250px;
+	}
+
+	.metadata {
+		display: flex;
+		flex-direction: column;
+		gap: 0px;
+	}
+}
+
+@media (max-width: 425px) {
+	.item {
+		display: flex;
+		flex-direction: column;
+		background-color: var(--color-gray);
+		border-radius: 20px;
+		margin: 0px 0px;
+		background-color: white;
+	}
+
+	.item > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.photoNews {
+		min-width: none;
+		width: 100%;
+		max-width: none;
+	}
+
+	.photoNews img {
+		width: 100%;
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+
+	.newsContent h3 {
+		color: var(--color-blue);
+		margin: 10px 0px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.metadata {
+		margin: 15px 0px;
+		display: flex;
+		justify-content: space-between;
+		color: var(--color-gray);
+	}
 }

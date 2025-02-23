@@ -26,4 +26,29 @@
 	outline: 0px;
 	background-color: inherit;
 	color: white;
+	cursor: pointer;
+}
+
+@media (max-width: 425px) {
+	.carousel {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 10px 0px 0px;
+		width: 100%;
+		height: 210px;
+		overflow: hidden;
+	}
+
+	.content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		margin: 3px 0px;
+	}
+
+	.carousel > button {
+		transform: rotate(90deg);
+	}
 }

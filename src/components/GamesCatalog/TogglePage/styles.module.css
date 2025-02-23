@@ -1,0 +1,17 @@
+.togglePage {
+	margin: 20px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.togglePage button {
+	border: none;
+	outline: none;
+	background-color: inherit;
+	color: white;
+	cursor: pointer;
+}
+
+.togglePage button:hover {
+	color: #ccc;
+}

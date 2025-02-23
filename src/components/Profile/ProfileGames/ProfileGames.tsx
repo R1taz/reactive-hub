@@ -30,7 +30,7 @@ const ProfileGames = () => {
 		<div
 			ref={scrollElementRef}
 			style={{
-				height: visibleGameItem * gameItemHeight,
+				height: visibleGameItem * gameItemHeight + 50,
 			}}
 			className={styles.virtualGameList}
 		>

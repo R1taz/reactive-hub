@@ -9,7 +9,6 @@ interface State {
 	newsItemHeight: number
 	current_page: number
 	page_size: number
-	scrollLeft: number
 }
 
 const initialState: State = {
@@ -20,7 +19,6 @@ const initialState: State = {
 	newsItemHeight: 185,
 	current_page: 1,
 	page_size: 10,
-	scrollLeft: 0,
 }
 
 const newsSlice = createSlice({
@@ -45,9 +43,6 @@ const newsSlice = createSlice({
 		setCurrentPage(state, action: PayloadAction<number>) {
 			state.current_page = action.payload
 		},
-		setScrollLeft(state, action: PayloadAction<number>) {
-			state.scrollLeft = action.payload
-		},
 	},
 })
 
@@ -59,5 +54,4 @@ export const {
 	setKeywords,
 	setCurrentPage,
 	resetNews,
-	setScrollLeft,
 } = newsSlice.actions
