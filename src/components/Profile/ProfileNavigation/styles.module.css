@@ -18,3 +18,7 @@
 .navigation a:last-child {
 	margin-left: 20px;
 }
+
+.navigation a.active {
+	color: var(--color-blue);
+}

@@ -22,6 +22,12 @@ const Paginator = ({
 	)
 
 	useEffect(() => {
+		if (Math.ceil(current_page / portion_size) !== currentPortion) {
+			setCurrentPortion(Math.ceil(current_page / portion_size))
+		}
+	}, [current_page])
+
+	useEffect(() => {
 		if (current_page === 1) setCurrentPortion(1)
 	}, [total_count])
 

@@ -17,6 +17,7 @@ import { useGetGamesQuery } from '@/api/gamesAPI'
 
 import styles from './styles.module.css'
 import ItemsPageSkeleton from '@/components/ui/ItemsPageSkeleton/ItemsPageSkeleton'
+import TogglePage from '@/components/GamesCatalog/TogglePage/TogglePage'
 
 const GamesPage = () => {
 	const games = useAppSelector(state => state.gamesSlice.games)
@@ -28,9 +29,11 @@ const GamesPage = () => {
 	)
 	const dispatch = useAppDispatch()
 
+	const widthBody = document.querySelector('body')?.offsetWidth
+
 	const { data, error, isLoading } = useGetGamesQuery({
 		page: current_page,
-		page_size: page_size,
+		page_size: widthBody! < 768 ? page_size : page_size * 2 + 1,
 		search: keywords,
 		activeFilters: activeFilters,
 	})
@@ -61,6 +64,7 @@ const GamesPage = () => {
 
 			<GamesCatalogPaginator />
 			<GamesList games={games} />
+			<TogglePage />
 		</>
 	)
 }

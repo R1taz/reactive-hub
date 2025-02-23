@@ -3,6 +3,7 @@ import styles from './styles.module.css'
 import { forwardRef, Ref, useState } from 'react'
 import notFoundPhoto from '../../../../assets/notFoundPhoto.jpg'
 import { useAppSelector } from '@/hooks/react-redux'
+import { convertDate } from '@/helpers/convertDate'
 
 interface Props {
 	newsItem: INews
@@ -19,8 +20,18 @@ const NewsItem = forwardRef<HTMLDivElement, Props>(
 			setIsError(true)
 		}
 
+		const widthBody = document.querySelector('body')?.offsetWidth
+
+		const date = convertDate(newsItem.published)
+
 		return (
-			<div ref={ref} className={styles.item} style={{ height: newsItemHeight }}>
+			<div
+				ref={ref}
+				className={styles.item}
+				style={{
+					height: widthBody! > 425 ? newsItemHeight : '',
+				}}
+			>
 				<div className={styles.photoNews}>
 					{newsItem.image !== 'None' && !isError && (
 						<img src={newsItem.image} onError={handleError} />
@@ -36,7 +47,7 @@ const NewsItem = forwardRef<HTMLDivElement, Props>(
 
 					<div className={styles.metadata}>
 						<span>{newsItem.author}</span>
-						<span>{newsItem.published}</span>
+						<span>{date}</span>
 					</div>
 				</div>
 			</div>
