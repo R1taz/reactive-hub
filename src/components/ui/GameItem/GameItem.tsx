@@ -44,6 +44,7 @@ const GameItem = ({
 					height: widthBody! > 425 && widthBody! < 1024 ? gameItemHeight : '',
 				}}
 			/>
+
 			<div className={styles.info}>
 				<h3>{game.name}</h3>
 				<p>Rating: {game.rating}</p>
@@ -51,7 +52,6 @@ const GameItem = ({
 
 				<NavLink to={`/games/${game.id}`}>Game Information {`→`}</NavLink>
 			</div>
-
 			{isFavoriteGame && (
 				<img
 					onClick={() => removeToMyGames(game.id)}
@@ -59,7 +59,6 @@ const GameItem = ({
 					src={favoriteSVG}
 				/>
 			)}
-
 			{!isFavoriteGame && (
 				<img
 					onClick={() => addToMyGames(game)}

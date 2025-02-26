@@ -6,6 +6,7 @@
 }
 
 .navigation a {
+	text-align: center;
 	text-decoration: none;
 	color: #a4a4a4;
 	margin: 10px 20px;
@@ -13,4 +14,13 @@
 
 .navigation a.active {
 	color: var(--color-blue);
+}
+
+@media (max-width: 425px) {
+	.navigation {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

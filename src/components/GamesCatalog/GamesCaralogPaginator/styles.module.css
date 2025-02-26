@@ -1,0 +1,9 @@
+.paginator {
+	justify-self: end;
+}
+
+@media (max-width: 425px) {
+	.paginator {
+		justify-self: center;
+	}
+}

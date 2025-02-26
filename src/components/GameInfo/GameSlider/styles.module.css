@@ -1,21 +1,16 @@
 .slider {
 	background-color: var(--color-gray);
 	border-radius: 20px;
-	height: 300px;
 	position: relative;
-	margin: 20px 0px;
+	margin: 20px auto;
+	width: 75%;
 }
 
-.slider .divScreenshot {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-
-.slider .divScreenshot .screenshot {
+.slider .screenshot {
 	width: 100%;
 	height: 100%;
 	border-radius: 20px;
+	display: block;
 }
 
 .slider button {
@@ -27,19 +22,19 @@
 }
 
 .slider button img {
-	width: 30px;
+	width: 50%;
 }
 
 .slider .prev {
 	top: 0%;
 	bottom: 0%;
-	left: 1%;
+	left: 0%;
 }
 
 .slider .next {
 	top: 0%;
 	bottom: 0%;
-	right: 1%;
+	right: 0%;
 }
 
 .slider .ageLimit {
@@ -55,8 +50,50 @@
 	justify-content: center;
 	align-items: center;
 
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	padding: 10px;
+	font-size: 20px;
+
 	border-radius: 50%;
+}
+
+@media (min-width: 425px) and (max-width: 1024px) {
+	.slider {
+		width: 100%;
+	}
+}
+
+@media (max-width: 425px) {
+	.slider {
+		width: 100%;
+		margin-bottom: 55px;
+	}
+
+	.slider button {
+		background-color: transparent;
+		color: white;
+		border: none;
+		cursor: pointer;
+	}
+
+	.slider button img {
+		width: 40%;
+	}
+
+	.slider .prev {
+		top: 110%;
+		left: 0%;
+	}
+
+	.slider .next {
+		top: 110%;
+		right: 0%;
+	}
+
+	.slider .ageLimit {
+		width: 20px;
+		height: 20px;
+		font-size: 16px;
+	}
 }

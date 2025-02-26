@@ -3,7 +3,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 101vh;
 	background-color: rgba(22, 22, 22, 0.1);
 	backdrop-filter: blur(5px);
 	display: flex;
@@ -32,7 +32,7 @@
 .modalContent > div {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin: 10px 0px;
 	gap: 15px;
 }
@@ -48,4 +48,25 @@
 
 .close img {
 	width: 35px;
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+	.modalContent {
+		height: 90%;
+		overflow-y: scroll;
+	}
+}
+
+@media (max-width: 425px) {
+	.modalContent {
+		height: 90%;
+		overflow-y: scroll;
+	}
+
+	.modalContent > div {
+		display: flex;
+		flex-direction: column;
+		margin: 10px 0px;
+		gap: 15px;
+	}
 }
