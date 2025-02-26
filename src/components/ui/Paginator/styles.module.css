@@ -1,7 +1,5 @@
 .paginator {
 	margin-bottom: 10px;
-	display: flex;
-	justify-content: end;
 }
 
 .paginator button {
@@ -9,6 +7,7 @@
 	border: none;
 	color: white;
 	cursor: pointer;
+	font-size: 14px;
 }
 
 .paginator button:hover:not(.active) {
@@ -19,4 +18,10 @@
 	background-color: inherit;
 	border: none;
 	color: var(--color-blue);
+}
+
+@media (max-width: 425px) {
+	.paginator button {
+		font-size: 16px;
+	}
 }

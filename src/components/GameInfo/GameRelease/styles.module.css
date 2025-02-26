@@ -6,4 +6,16 @@
 .release p {
 	color: var(--color-gray);
 	font-style: italic;
+	text-align: center;
+}
+
+@media (max-width: 480px) {
+	.release {
+		display: flex;
+		flex-direction: column;
+		margin: 20px 0px;
+	}
+	.release p {
+		margin: 0px;
+	}
 }
