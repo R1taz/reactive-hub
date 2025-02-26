@@ -1,7 +1,7 @@
 .filters {
 	display: flex;
 	flex-direction: column;
-	width: 31%;
+	width: 20%;
 }
 
 .filters h2 {
@@ -26,4 +26,22 @@
 
 .virtualFiltersList::-webkit-scrollbar-track {
 	background: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.filters {
+		width: 31%;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+	.filters {
+		width: 45%;
+	}
+}
+
+@media (max-width: 480px) {
+	.filters {
+		width: 100%;
+	}
 }

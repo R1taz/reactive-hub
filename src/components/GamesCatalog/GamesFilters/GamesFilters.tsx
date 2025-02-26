@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import styles from './styles.module.css'
 import FiltersModal from '@/components/ui/FiltersModal/FiltersModal'
 
 const GamesFilters = () => {
 	const [isOpen, setIsOpen] = useState(false)
-	const body = document.querySelector('body')
+	const body = useMemo(() => document.querySelector('body'), [])
 
 	const handleChangeIsOpen = (toggleOpen: boolean) => {
 		if (toggleOpen && body) body.classList.add('noScroll')

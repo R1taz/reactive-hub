@@ -36,3 +36,26 @@
 	gap: 2;
 	width: 10%;
 }
+
+@media (max-width: 768px) {
+	.content img {
+		width: 90%;
+	}
+}
+
+@media (max-width: 425px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content > div:first-child {
+		align-items: center;
+		margin-bottom: 10px;
+	}
+
+	.content > div:last-child {
+		align-items: center;
+		margin-top: 10px;
+	}
+}

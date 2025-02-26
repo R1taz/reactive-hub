@@ -8,7 +8,7 @@ interface Props {
 	right?: number
 }
 
-const Loading = ({ top, bottom, left, right }: Props) => {
+const Loading = ({ top = 0, bottom = 0, left = 0, right = 0 }: Props) => {
 	return (
 		<img
 			style={{ top, bottom, left, right }}
